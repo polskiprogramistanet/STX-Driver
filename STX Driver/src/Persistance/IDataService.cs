@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
-namespace STX_Driver
+namespace STX_Driver.src.Persistance
 {
-    public class Class1
+    public interface IDataBase
     {
+        object DbReader(IDataReader rd);
     }
 }

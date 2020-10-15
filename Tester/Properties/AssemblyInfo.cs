@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Ogólne informacje o zestawie są kontrolowane poprzez następujący 
 // zestaw atrybutów. Zmień wartości tych atrybutów, aby zmodyfikować informacje
 // powiązane z zestawem.
-[assembly: AssemblyTitle("STX Driver")]
-[assembly: AssemblyDescription("Sterownik czytnika STX2000")]
+[assembly: AssemblyTitle("Tester")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Code-Block ltd")]
-[assembly: AssemblyProduct("STX Driver")]
-[assembly: AssemblyCopyright("Copyright ©  Code-Block ltd 2020")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Tester")]
+[assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Następujący identyfikator GUID jest identyfikatorem biblioteki typów w przypadku udostępnienia tego projektu w modelu COM
-[assembly: Guid("2c86535d-a213-4900-af29-d3158585e7a8")]
+[assembly: Guid("8b9d7049-a949-4419-8bc6-5c9ed51fb0c6")]
 
 // Informacje o wersji zestawu zawierają następujące cztery wartości:
 //
