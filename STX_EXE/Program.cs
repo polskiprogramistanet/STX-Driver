@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using STX_Driver.src.Application;
+using libProtocols.OilSocket.Common;
 
 namespace STX_EXE
 {
@@ -13,11 +14,8 @@ namespace STX_EXE
         {
             try
             {
-                IInitOperation init = new Initiation("com1", "Data Source=192.168.1.5\\INSERTGT;Initial Catalog=BudTrans2012;Persist Security Info=True;User ID=sa;Password=junak");
-                init.GetReaderData += Init_GetReaderData;
-                init.StartEngine();
-
-                
+                OilDriver driver = new OilDriver();
+                               
             }
             catch (Exception ex)
             {
@@ -28,10 +26,17 @@ namespace STX_EXE
                 Console.ReadKey();
             }
         }
+    }
 
-        private static void Init_GetReaderData(object sender, object e)
+    class OilDriver
+    {
+        ISTXOperation stx = null;
+        public OilDriver()
         {
-           
+            stx = new STXEngine("com1", "Data Source=192.168.1.5\\DARTSYSTEM;Initial Catalog=CTL_GROUP;Persist Security Info=True;User ID=sa;Password=junak");
+            stx.StartEngine();
         }
+
+        
     }
 }

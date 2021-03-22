@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace STX_Driver.src.Domain.Entities
 {
-    class Customer
+    public class Customer
     {
         public Customer(int id)
         {

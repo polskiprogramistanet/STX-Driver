@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using STX_Driver.src.Domain.Entities;
 using System.IO.Ports;
+using STX_Driver.src.Domain.Observers;
 
 namespace STX_Driver.src.Persistance
 {
@@ -14,10 +15,10 @@ namespace STX_Driver.src.Persistance
         List<Reader> readers;
         string query=null;
         SerialPort port=null;
-        IReaderObserver observer = null;
-        public RepositoryOfReaders(SerialPort port, IReaderObserver observer)
+        IObserverFromReaderToEngine observer = null;
+        public RepositoryOfReaders(SerialPort port, IObserverFromReaderToEngine observer)
         {
-            this.query = "SELECT [crd_id],[crd_ModelId],[crd_ModelName],[crd_Num],[crd_Adress],[crd_DSN],[crd_CDN] FROM [dbo].[Fuel_CardReader] ORDER BY [crd_DSN];";
+            this.query = "SELECT [crd_id],[crd_ModelId],[crd_ModelName],[crd_Num],[crd_Adress],[crd_DSN],[crd_CDN],[crd_Session]FROM [dbo].[Fuel_CardReader] ORDER BY [crd_DSN];";
             this.port = port;
             this.observer = observer;
             DataService.SetQuery(this.query, this);
@@ -34,6 +35,7 @@ namespace STX_Driver.src.Persistance
                     item.Id = (int)rd[0];
                     item.Name = rd[2].ToString().Trim();
                     item.Number = (int)rd[3];
+                    item.SetNumberOfSession((int)rd[7]);
                     this.readers.Add(item);
                 }
             }
@@ -46,6 +48,19 @@ namespace STX_Driver.src.Persistance
         public List<Reader> GetItems()
         {
             return readers;
+        }
+
+        public void SetSessionNumberToReader(int num, Reader reader)
+        {
+            try
+            {
+
+                DataService.GetDataSQLNonQuery("UPDATE [dbo].[Fuel_CardReader] SET [crd_Session] = " + num + " WHERE [crd_id] = " + reader.Id +"");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("RepositoryOfReaders.SetSessionNumberToReader: {0}", ex.Message);
+            }
         }
     }
 }

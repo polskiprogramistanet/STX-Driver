@@ -39,6 +39,45 @@ namespace STX_Driver.src.Persistance
             }
 
         }
+        public static int GetDataSQLNonQuery(string sql)
+        {
+            int r = 0;
+            using (SqlConnection conn = CreateConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand c = new SqlCommand(sql, conn);
+                    r = c.ExecuteNonQuery();
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message + conn.ConnectionString, "GetDataSQLScalar");
+                }
+
+            }
+
+            return r;
+        }
+        public static object GetDataSQLScalar(string sql)
+        {
+            object r = null;
+            using (SqlConnection conn = CreateConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand c = new SqlCommand(sql, conn);
+                    r = c.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    Console.Write(ex.Message + conn.ConnectionString, "GetDataSQLScalar");
+                }
+            }
+            return r;
+        }
 
     }
 }

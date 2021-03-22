@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using STX_Driver.src.Common.Enums;
-
+using STX_Driver.src.Application;
 
 namespace STX_Driver.src.Domain.Entities.Cards
 {
-    abstract class CardBase
+    public abstract class CardBase : ICard
     {
         public CardBase(int id)
         {

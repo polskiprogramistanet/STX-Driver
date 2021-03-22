@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace STX_Driver.src.Domain.Entities
 {
-    class Driver
+    public class Driver
     {
         public Driver(int id)
         {

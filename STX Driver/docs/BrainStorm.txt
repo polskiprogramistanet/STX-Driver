@@ -1,0 +1,3 @@
+﻿Opcja przekazania sterownia do silnika sterownika.
+W takiej opcji czytnik pozostaje urządzeniem zgłaszającym odkrycia, czyli że ktoś przyłożył kartę, wpisał pin, kliknął ok lub escape.
+Decyzje czy karta 

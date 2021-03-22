@@ -8,7 +8,6 @@ namespace STX_Driver.src.Domain.Entities
 {
     class FuelTransaction
     {
-
         public int Id { get; set; }
         public int FuelId { get; set; }
         public int DSN { get; set; }

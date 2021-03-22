@@ -3,25 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using STX_Driver.src.Common.Enums;
+using STX_Driver.src.Domain.Entities;
+using STX_Driver.src.Domain.States;
 
 namespace STX_Driver.src.Domain.Dispatcher
 {
     class RespGetStateNothing : ResponseBase
     {
-        public override object Handle(byte[] buffer)
+        public override IState Handle(byte[] buffer, IReaderOperation obj)
         {
-            Console.WriteLine(BitConverter.ToString(buffer));
-            if (buffer.Length > 4)
+            
+            if (buffer[3] == 0x00)
             {
-
+               
+                return null;
             }
             else
             {
-
+                return base.Handle(buffer, obj);
             }
-
-
-            return base.Handle(buffer);
+            
         }
 
     }

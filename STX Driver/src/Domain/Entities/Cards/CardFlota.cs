@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using STX_Driver.src.Common.Enums;
+using STX_Driver.src.Domain.Entities.Cards.VehicleEntity;
 using InsERT;
 
 namespace STX_Driver.src.Domain.Entities.Cards
 {
-    class CardFlota : CardBase
+    public class CardFlota : CardBase
     {
         public CardFlota(int id) : base(id)
         {

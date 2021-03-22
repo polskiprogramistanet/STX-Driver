@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using STX_Driver.src.Persistance;
+using STX_Driver.src.Persistance.CardRepository;
 using STX_Driver.src.Domain.Entities.Cards;
 using STX_Driver.src.Application;
 
 namespace STX_Driver.tests
 {
-    public class TestCardsOperations
+    public class TestCardsOperations : ITestCardsOperations
     {
         public TestCardsOperations()
         {
-            IInitOperation init = new Initiation("com3", "Data Source=192.168.1.5\\INSERTGT;Initial Catalog=BudTrans2012;Persist Security Info=True;User ID=sa;Password=junak");
+            ISTXOperation init = new STXEngine("com3", "Data Source=192.168.1.5\\INSERTGT;Initial Catalog=BudTrans2012;Persist Security Info=True;User ID=sa;Password=junak");
         }
-        public void TestLoadCards()
+        public void TestLoadCard(string codeNum)
         {
             CardFlota card = null;
 
-            IRepositoryOfCard repository = new RepositoryOfCard("05004A0E85C4");
-            card = repository.Execute();
+            IRepositoryOfCardOperation repository = new RepositoryOfCard("05004A0E85C4");
+            card = repository.GetCard();
             Console.WriteLine("Karta numer = {0}", card.CardNumber);
             foreach(var e in card.Discounts)
             {

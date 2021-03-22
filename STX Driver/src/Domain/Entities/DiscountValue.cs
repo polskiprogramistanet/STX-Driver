@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace STX_Driver.src.Domain.Entities
 {
-    class DiscountValue 
+    public class DiscountValue 
     {
         public int Id { get; set; }
         public int IdFuel { get; set; }

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STX_EXE", "STX_EXE\STX_EXE.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "Tester\Tester.csproj", "{8B9D7049-A949-4419-8BC6-5C9ED51FB0C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libProtocols", "..\..\OIL DRIVER 2\libProtocols\libProtocols.csproj", "{443DC186-F4A2-4598-919E-5D822A2BF89E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{8B9D7049-A949-4419-8BC6-5C9ED51FB0C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B9D7049-A949-4419-8BC6-5C9ED51FB0C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B9D7049-A949-4419-8BC6-5C9ED51FB0C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{443DC186-F4A2-4598-919E-5D822A2BF89E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{443DC186-F4A2-4598-919E-5D822A2BF89E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{443DC186-F4A2-4598-919E-5D822A2BF89E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{443DC186-F4A2-4598-919E-5D822A2BF89E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

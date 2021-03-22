@@ -50,6 +50,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\OIL DRIVER 2\libProtocols\libProtocols.csproj">
+      <Project>{443dc186-f4a2-4598-919e-5d822a2bf89e}</Project>
+      <Name>libProtocols</Name>
+    </ProjectReference>
     <ProjectReference Include="..\STX Driver\STX Driver.csproj">
       <Project>{2c86535d-a213-4900-af29-d3158585e7a8}</Project>
       <Name>STX Driver</Name>

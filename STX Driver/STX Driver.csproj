@@ -42,15 +42,36 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\Domain\Dispatcher\IDispatcherObserver.cs" />
+    <Compile Include="src\Application\CardConstructor.cs" />
+    <Compile Include="src\Application\ICardConstructor.cs" />
+    <Compile Include="src\Application\ICard.cs" />
+    <Compile Include="src\Common\GetCardCode.cs" />
+    <Compile Include="src\Common\GetNumberSession.cs" />
+    <Compile Include="src\Common\IKeyStateDecoder.cs" />
+    <Compile Include="src\Common\IPinDecoder.cs" />
+    <Compile Include="src\Application\IReader.cs" />
+    <Compile Include="src\Common\KeyStateDecoder.cs" />
+    <Compile Include="src\Common\PinDecoder.cs" />
+    <Compile Include="src\Common\TextInfoModeling\ApplyTheCardInfo.cs" />
+    <Compile Include="src\Common\TextInfoModeling\EnterThePINInfo.cs" />
+    <Compile Include="src\Common\TextInfoModeling\FinderOfCard.cs" />
+    <Compile Include="src\Common\TextInfoModeling\InfoModelBase.cs" />
+    <Compile Include="src\Common\TextInfoModeling\NoCardInSystemInfo.cs" />
+    <Compile Include="src\Common\TextInfoModeling\RefuelingAuthorizationInfo.cs" />
+    <Compile Include="src\Common\TextInfoModeling\TheCardIsBlockedInfo.cs" />
+    <Compile Include="src\Domain\Dispatcher\RespSessionChecker.cs" />
+    <Compile Include="src\Domain\Dispatcher\RespTextHasBeenSent.cs" />
+    <Compile Include="src\Domain\Entities\TimeOut.cs" />
+    <Compile Include="src\Domain\Observers\IObserverDispatcher.cs" />
     <Compile Include="src\Domain\Dispatcher\Magistrala.cs" />
     <Compile Include="src\Domain\Dispatcher\IResponseHandler.cs" />
     <Compile Include="src\Domain\Dispatcher\RespGetCardCode.cs" />
+    <Compile Include="src\Domain\Dispatcher\RespCardChecker.cs" />
     <Compile Include="src\Domain\Dispatcher\RespGetPinCode.cs" />
     <Compile Include="src\Domain\Dispatcher\RespGetStateNothing.cs" />
     <Compile Include="src\Domain\Dispatcher\ResponseBase.cs" />
-    <Compile Include="src\Application\IInitOperation.cs" />
-    <Compile Include="src\Application\Initiation.cs" />
+    <Compile Include="src\Application\ISTXOperation.cs" />
+    <Compile Include="src\Application\STXEngine.cs" />
     <Compile Include="src\Common\Configuration.cs" />
     <Compile Include="src\Common\Enums\EnumsCard.cs" />
     <Compile Include="src\Domain\Entities\Cards\CardFlota.cs" />
@@ -60,34 +81,53 @@
     <Compile Include="src\Domain\Entities\DiscountValue.cs" />
     <Compile Include="src\Domain\Entities\Driver.cs" />
     <Compile Include="src\Domain\Entities\FuelTransaction.cs" />
-    <Compile Include="src\Domain\Entities\IReader.cs" />
-    <Compile Include="src\Domain\Entities\IReaderObserver.cs" />
+    <Compile Include="src\Domain\Observers\IObserverFromReaderToEngine.cs" />
     <Compile Include="src\Domain\Entities\IReaderOperation.cs" />
     <Compile Include="src\Domain\Entities\Reader.cs" />
-    <Compile Include="src\Domain\Entities\Vehicle.cs" />
-    <Compile Include="src\Domain\Protocol\CmdSetText.cs" />
-    <Compile Include="src\Domain\Protocol\CmdStatus.cs" />
-    <Compile Include="src\Domain\Protocol\CreatorCRC.cs" />
-    <Compile Include="src\Domain\Protocol\ICommand.cs" />
+    <Compile Include="src\Domain\Entities\Cards\VehicleEntity\Vehicle.cs" />
+    <Compile Include="src\Domain\Observers\IObserverCardConstructor.cs" />
+    <Compile Include="src\Domain\Observers\IObserverTimeOutOperation.cs" />
+    <Compile Include="src\Domain\States\CardActive.cs" />
+    <Compile Include="src\Domain\States\CardFinder.cs" />
+    <Compile Include="src\Domain\States\CardNoActive.cs" />
+    <Compile Include="src\Domain\States\CardNotExist.cs" />
+    <Compile Include="src\Domain\States\Context.cs" />
+    <Compile Include="src\Domain\States\PinChecker.cs" />
+    <Compile Include="src\Domain\States\SomethingToSay.cs" />
+    <Compile Include="src\Domain\States\PinActive.cs" />
+    <Compile Include="src\Domain\States\IState.cs" />
+    <Compile Include="src\Domain\States\StateBase.cs" />
+    <Compile Include="src\Domain\States\TextHasBeenSend.cs" />
     <Compile Include="src\Persistance\DataService.cs" />
     <Compile Include="src\Persistance\IDataService.cs" />
-    <Compile Include="src\Persistance\IRepositoryOfCard.cs" />
-    <Compile Include="src\Persistance\IRepositoryOfReader.cs" />
-    <Compile Include="src\Persistance\IRepositoryOfCustomer.cs" />
-    <Compile Include="src\Persistance\IRepositoryOfDiscount.cs" />
-    <Compile Include="src\Persistance\IRepositoryOfDriver.cs" />
-    <Compile Include="src\Persistance\IRepositoryOfVehicle.cs" />
-    <Compile Include="src\Persistance\RepositoryOfReaders.cs" />
-    <Compile Include="src\Persistance\RepositoryOfCard.cs" />
-    <Compile Include="src\Persistance\RepositoryOfCustomer.cs" />
-    <Compile Include="src\Persistance\RepositoryOfDiscount.cs" />
-    <Compile Include="src\Persistance\RepositoryOfDriver.cs" />
-    <Compile Include="src\Persistance\RepositoryOfVehicle.cs" />
+    <Compile Include="src\Persistance\CardRepository\IRepositoryOfCardOperation.cs" />
+    <Compile Include="src\Persistance\CardRepository\SessionNumber\CardSessionNumber.cs" />
+    <Compile Include="src\Persistance\Readers\IRepositoryOfReader.cs" />
+    <Compile Include="src\Persistance\CardRepository\CustomerRepository\IRepositoryOfCustomer.cs" />
+    <Compile Include="src\Persistance\CardRepository\DiscountRepository\IRepositoryOfDiscount.cs" />
+    <Compile Include="src\Persistance\CardRepository\DriverRepository\IRepositoryOfDriver.cs" />
+    <Compile Include="src\Persistance\CardRepository\VehicleRepository\IRepositoryOfVehicle.cs" />
+    <Compile Include="src\Persistance\CardRepository\SessionNumber\ISetCardNumberSessionOperation.cs" />
+    <Compile Include="src\Persistance\Readers\RepositoryOfReaders.cs" />
+    <Compile Include="src\Persistance\CardRepository\RepositoryOfCard.cs" />
+    <Compile Include="src\Persistance\CardRepository\CustomerRepository\RepositoryOfCustomer.cs" />
+    <Compile Include="src\Persistance\CardRepository\DiscountRepository\RepositoryOfDiscount.cs" />
+    <Compile Include="src\Persistance\CardRepository\DriverRepository\RepositoryOfDriver.cs" />
+    <Compile Include="src\Persistance\CardRepository\VehicleRepository\RepositoryOfVehicle.cs" />
+    <Compile Include="tests\ITestCardsOperations.cs" />
+    <Compile Include="tests\ITestDriver.cs" />
+    <Compile Include="tests\ITestMagistrala.cs" />
+    <Compile Include="tests\ITestProtocol.cs" />
+    <Compile Include="tests\ITestReaders.cs" />
+    <Compile Include="tests\ITestVehicle.cs" />
     <Compile Include="tests\TestCardsOperations.cs" />
+    <Compile Include="tests\TestDriver.cs" />
+    <Compile Include="tests\TestMagistrala.cs" />
     <Compile Include="tests\TestProtocol.cs" />
+    <Compile Include="tests\TestReaders.cs" />
+    <Compile Include="tests\TestVehicle.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="docs\" />
     <Folder Include="src\Infrastructure\" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +149,15 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\OIL DRIVER 2\libProtocols\libProtocols.csproj">
+      <Project>{443dc186-f4a2-4598-919e-5d822a2bf89e}</Project>
+      <Name>libProtocols</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="docs\BrainStorm.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
